@@ -17,3 +17,5 @@ ansible-pull -U https://github.com/BitsOfAByte/ansible-deploy.git --ask-become-p
 ```
 
 Please note the script may freeze on certain tasks momentarily. Please allow some time for tasks to run, especially for the first time.
+
+After running for the first time, restart your system fully.
