@@ -15,3 +15,5 @@ If you still want to run them anyway, install `ansible` and `git` with your pack
 ```
 ansible-pull -U https://github.com/BitsOfAByte/ansible-deploy.git --ask-become-pass
 ```
+
+Please note the script may freeze on certain tasks momentarily. Please allow some time for tasks to run, especially for the first time.
