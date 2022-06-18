@@ -9,6 +9,7 @@
     # Install Configurations
     - import_tasks: system_setup/install-configs.yml
     - import_tasks: system_setup/directories.yml
+    - import_tasks: system_setup/systemd.yml
 
     # Desktop Environment Configuration
     - import_tasks: desktop_environments/gnome/main.yml

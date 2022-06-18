@@ -1,0 +1,8 @@
+- name: System | Enable ProtonVPN Autostart
+  tags: system,systemd
+  systemd:
+    name: protonvpn_autostart
+    enabled: yes
+    state: started
+    scope: user
+    daemon_reload: yes

@@ -1,4 +1,4 @@
-- name: Software | Install Flatpak
+- name: Sources | Install Flatpak
   tags: always
   become: true
   package:
@@ -6,14 +6,14 @@
       - flatpak
     state: latest
 
-- name: Software | Flathub Repository Re-sync (Step 1)
+- name: Sources | Flathub Repository Re-sync (Step 1)
   failed_when: false
   changed_when: false
   flatpak_remote:
     name: flathub
     state: absent
 
-- name: Software | Flathub Repository Re-sync (Step 2)
+- name: Sources | Flathub Repository Re-sync (Step 2)
   failed_when: false
   changed_when: false
   flatpak_remote:

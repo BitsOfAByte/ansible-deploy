@@ -1,5 +1,5 @@
 - name: System | Create Dev Directories
-  tags: system,dotfiles
+  tags: system
   file:
     path: ~/{{ item.dir }}
     state: directory
