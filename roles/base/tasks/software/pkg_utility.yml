@@ -15,3 +15,6 @@
       - "{{ python_pkg }}"
       - "{{ cron_pkg }}"
     state: latest
+
+- import_tasks: software/utility/pamac.yml
+  when: ansible_os_family in ["Archlinux"]

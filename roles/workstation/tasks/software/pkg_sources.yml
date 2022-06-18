@@ -3,7 +3,7 @@
   become: true
 
 - import_tasks: software/sources/apt.yml
-  when: ansible_pkg_mgr in ["apt", "apt-get"]
+  when: ansible_pkg_mgr in ["apt"]
   become: true
 
 - import_tasks: software/sources/flatpak.yml

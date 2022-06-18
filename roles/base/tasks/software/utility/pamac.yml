@@ -1,0 +1,17 @@
+- name: Software | Utility | Pamac Pre-requisites (Arch)
+  tags: software,utility
+  pacman:
+    name: base-devel
+    state: present
+
+- name: Software | Utility | Clone Pamac Repository (Arcg)
+  tags: software,utility
+  git:
+    repo: https://aur.archlinux.org/pamac-aur.git
+    dest: /tmp/ansible/pamac-aur
+
+- name: Software | Utility | Install Pamac (Arch)
+  tags: software,utility
+  make:
+    chdir: /tmp/ansible/pamac-aur
+    params: -sic

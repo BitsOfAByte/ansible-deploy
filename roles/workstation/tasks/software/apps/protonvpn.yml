@@ -1,6 +1,14 @@
-- name: Software | Install Protonvpn
+- name: Software | Install ProtonVPN (APT, DNF)
   tags: always
   become: true
   ignore_errors: true
+  when: ansible_pkg_mgr in ["apt", "dnf",  "yum"]
   package:
     name: protonvpn
+
+- name: Software | Install ProtonVPN (Arch)
+  tags: always
+  become: true
+  ignore_errors: true
+  when: ansible_os_family in ["Archlinux"]
+  shell: pamac build protonvpn-cli --no-confirm
