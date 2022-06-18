@@ -1,2 +1,7 @@
 [Desktop Entry]
+Categories=Utility;
+StartupNotify=false
+Terminal=true
+Type=Application
 Exec=/usr/bin/protonvpn-cli c -f
+Name=ProtonVPN Autoconnect
