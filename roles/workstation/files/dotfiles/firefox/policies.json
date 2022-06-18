@@ -104,56 +104,23 @@
         "toplevel_name": "Synced"
       },
       {
-        "name": "Manage Dotfiles",
-        "url": "https://github.com/BitsOfAByte/.dotfiles"
-      },
-      {
-        "name": "Add to Cube Cloud",
-        "url": "javascript:(function(){var a=window,b=document,c=encodeURIComponent,e=c(document.title),d=a.open('https://nc.bitsofabyte.dev/apps/bookmarks/bookmarklet?url='+c(b.location)+'&title='+e,'bkmk_popup','left='+((a.screenX||a.screenLeft)+10)+',top='+((a.screenY||a.screenTop)+10)+',height=650px,width=550px,resizable=1,alwaysRaised=1');a.setTimeout(function(){d.focus()},300);})();"
-      },
-      {
-        "name": "Cube Cloud Bookmarks",
-        "url": "https://nc.bitsofabyte.dev/apps/bookmarks/"
-      },
-      {
-        "name": "Cube Cloud",
-        "children": [
-          {
-            "name": "Dashboard",
-            "url": "https://nc.bitsofabyte.dev/"
-          },
-          {
-            "name": "Rainloop",
-            "url": "https://nc.bitsofabyte.dev/apps/rainloop/"
-          },
-          {
-            "name": "Files",
-            "url": "https://nc.bitsofabyte.dev/apps/files/"
-          },
-          {
-            "name": "News",
-            "url": "https://nc.bitsofabyte.dev/apps/news/"
-          },
-          {
-            "name": "Notes",
-            "url": "https://nc.bitsofabyte.dev/apps/notes/"
-          }
-        ]
+        "name": "Manage Sync",
+        "url": "https://github.com/BitsOfAByte/ansible-deploy"
       },
       {
         "name": "Productivity",
         "children": [
           {
             "name": "ProtonMail",
-            "url": "https://mail.protonmail.com/"
+            "url": "https://mail.proton.me/"
           },
           {
             "name": "ProtonCalendar",
-            "url": "https://calendar.protonmail.com/"
+            "url": "https://calendar.proton.me/"
           },
           {
             "name": "ProtonDrive",
-            "url": "https://drive.protonmail.com/"
+            "url": "https://drive.proton.me/"
           },
           {
             "name": "GMail",
