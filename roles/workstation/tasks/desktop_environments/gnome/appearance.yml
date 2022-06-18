@@ -1,3 +1,15 @@
+# Pre Appearance
+# Create Directories
+- name: GNOME | Appearance | Make prerequisite directories
+  tags: system,dotfiles
+  file:
+    path: /{{ item.dir }}
+    state: directory
+  with_items:
+    - { dir: "/usr/share/backgrounds/" }
+    - { dir: "/usr/share/icons/" }
+    - { dir: "/usr/share/themes/" }
+
 # Wallpaper Stuff
 - name: GNOME | Appearance | Copy Wallpaper File (Light)
   tags: gnome,gnome-wallpaper
