@@ -1,0 +1,14 @@
+[Unit]
+Description=ProtonVPN Autoconnect
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=sh -c "until systemctl is-active network-online.target; do sleep 1; done"
+ExecStart=protonvpn-cli c -f
+TimeoutStartSec=30
+ExecStop=protonvpn-cli d
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

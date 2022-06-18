@@ -7,7 +7,7 @@
   with_items:
     - { dir: .config/VSCodium/User/ }
     - { dir: .config/Code/User/ }
-    - { dir: .config/autostart/ }
+    - { dir: .config/systemd/user/ }
 
 - name: System | Create Dotfile Directories (Root)
   tags: system,dotfiles
@@ -33,8 +33,8 @@
     - { src: "vscode/settings.json", dest: ".config/Code/User/settings.json" }
 
     - {
-        src: "autostart/protonvpn.desktop",
-        dest: ".config/autostart/protonvpn.desktop",
+        src: "systemd/protonvpn_autostart.service",
+        dest: ".config/systemd/user/protonvpn_autostart.service",
       }
 
 - name: System | Install Dotfiles (Root)
