@@ -52,6 +52,8 @@ speed=-0.3
 
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
+click-method='area'
+tap-to-click=true
 
 [org/gnome/desktop/privacy]
 disable-camera=true
