@@ -9,7 +9,7 @@
         fontName=$2
         fontDir=$HOME/.local/share/fonts
 
-        wget -q $fontURL -O "$fontDir/$fontName"
+        curl $fontURL -s -L --output "$fontDir/$fontName"
     }
 
     downloadFont https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf "MesloLGS NF Regular.ttf"
