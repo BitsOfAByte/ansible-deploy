@@ -5,14 +5,10 @@
   package:
     name: protonvpn
 
-- name: Software | Check for ProtonVPN-CLI (Arch)
-  register: pvpn_check
-  when: ansible_pkg_mgr in ["pacman"]
-  failed_when: pvpn_check.rc > 1
-  shell: which protonvpn-cli
-
 - name: Software | Install ProtonVPN-CLI (Arch)
   become: true
   ignore_errors: true
-  when: ansible_os_family in ["Archlinux"] and pvpn_check.rc == 1
-  shell: pamac build protonvpn-cli --no-confirm
+  when: ansible_pkg_mgr in ["pacman"]
+  pacman:
+    name: protonvpn-cli
+    executable: yay

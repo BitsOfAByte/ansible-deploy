@@ -16,5 +16,5 @@
       - "{{ cron_pkg }}"
     state: latest
 
-- import_tasks: software/utility/pamac.yml
+- import_tasks: software/utility/yay.yml
   when: ansible_pkg_mgr in ["pacman"]

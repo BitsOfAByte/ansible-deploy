@@ -1,0 +1,23 @@
+- name: Software | Utility | Check if Yay is installed (Arch)
+  shell: which yay
+  register: yay_check
+  failed_when: yay_check.rc > 1
+
+- name: Software | Utility | Yay Pre-requisites (Arch)
+  tags: software,utility
+  when: yay_check.rc == 1
+  pacman:
+    name: base-devel
+    state: present
+
+- name: Software | Utility | Clone Yay Repository (Arch)
+  tags: software,utility
+  when: yay_check.rc == 1
+  git:
+    repo: https://aur.archlinux.org/yay-git.git
+    dest: /tmp/ansible/yay-aur
+
+- name: Software | Utility | Install Yay (Arch)
+  tags: software,utility
+  when: yay_check.rc == 1
+  shell: cd /tmp/ansible/yay-aur && makepkg -si --noconfirm
