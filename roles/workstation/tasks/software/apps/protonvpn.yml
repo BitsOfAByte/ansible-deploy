@@ -9,7 +9,7 @@
   become: true
   ignore_errors: true
   when: ansible_pkg_mgr in ["pacman"]
-  acman:
+  pacman:
     name: protonvpn-cli
     executable: yay
     extra_args: --builddir /var/cache/yay
