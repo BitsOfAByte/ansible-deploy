@@ -14,4 +14,4 @@
   tags: software,utility
   make:
     chdir: /tmp/ansible/pamac-aur
-    params: -sic
+    params: { "-sic" }
