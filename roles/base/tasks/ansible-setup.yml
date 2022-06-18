@@ -13,6 +13,6 @@
       - "{{ dconf_pkg }}"
       - "{{ psutil_pkg }}"
 
-- name: Ansible | Make Temporar
+- name: Ansible | Make Temporary Dir
   tags: ansible,ansible-setup,temporary
   command: mkdir -p /tmp/ansible
