@@ -37,6 +37,7 @@ font-hinting='slight'
 gtk-theme='WhiteSur-Dark-pink'
 icon-theme='WhiteSur-pink-dark'
 toolkit-accessibility=false
+show-battery-percentage=true
 
 [org/gnome/desktop/media-handling]
 autorun-never=true
