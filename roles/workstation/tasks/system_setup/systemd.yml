@@ -3,6 +3,5 @@
   systemd:
     name: protonvpn_autostart
     enabled: yes
-    state: started
     scope: user
     daemon_reload: yes
