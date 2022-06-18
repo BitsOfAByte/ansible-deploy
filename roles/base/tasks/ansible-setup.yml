@@ -15,4 +15,6 @@
 
 - name: Ansible | Make Temporary Dir
   tags: ansible,ansible-setup,temporary
-  command: mkdir -p /tmp/ansible
+  file:
+    state: directory
+    path: /tmp/ansible
