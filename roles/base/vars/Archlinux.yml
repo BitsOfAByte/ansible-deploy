@@ -2,5 +2,5 @@ cron_pkg: cronie
 python_pkg: python3
 lm_sensors_pkg: lm_sensors
 psutil_pkg: python-psutil
-firacode_pkg: firacode
+firacode_pkg: ttf-fira-code
 dconf_pkg: dconf
