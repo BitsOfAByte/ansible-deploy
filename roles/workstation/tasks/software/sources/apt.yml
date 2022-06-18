@@ -1,9 +1,9 @@
-- name: Sources | BitsOfAByte Repo (APT)
+- name: Sources | BitsOfAByte Repository (APT)
   apt_repository:
     repo: deb [trusted=yes] https://packages.bitsofabyte.dev/apt/ /
     state: present
 
-- name: Sources | ProtonVPN (APT)
+- name: Sources | ProtonVPN Repository (APT)
   apt:
     deb: https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb
     state: present
