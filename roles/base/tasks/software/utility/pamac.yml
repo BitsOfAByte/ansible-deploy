@@ -1,4 +1,4 @@
-- name: Software | Utility | Check if Pamac is installed
+- name: Software | Utility | Check if Pamac is installed (Arch)
   shell: which pamac
   register: pamac_check
   failed_when: pamac_check.rc > 1
@@ -10,7 +10,7 @@
     name: base-devel
     state: present
 
-- name: Software | Utility | Clone Pamac Repository (Arcg)
+- name: Software | Utility | Clone Pamac Repository (Arch)
   tags: software,utility
   when: pamac_check.rc == 1
   git:
