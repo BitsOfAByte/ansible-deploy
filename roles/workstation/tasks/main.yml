@@ -12,4 +12,4 @@
 
     # Desktop Environment Configuration
     - import_tasks: desktop_environments/gnome/main.yml
-      when: ansible_env.XDG_CURRENT_DESKTOP == 'GNOME'
+      when: ansible_env.XDG_CURRENT_DESKTOP.find('GNOME') != -1

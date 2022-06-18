@@ -15,6 +15,7 @@
 
 - name: Ansible | Make Temporary Dir
   tags: ansible,ansible-setup,temporary
+  changed_when: false
   file:
     state: directory
     path: /tmp/ansible
