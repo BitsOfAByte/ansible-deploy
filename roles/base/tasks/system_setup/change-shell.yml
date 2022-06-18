@@ -1,0 +1,4 @@
+- name: System | Change Default Shell (ZSH)
+  become: true
+  changed_when: false
+  command: usermod --shell /bin/zsh {{ ansible_env.USER }}

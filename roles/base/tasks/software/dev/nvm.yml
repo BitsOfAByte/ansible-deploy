@@ -1,0 +1,27 @@
+- name: Software | Check for NVM
+  tags: always
+  register: nvm_check
+  changed_when: false
+  failed_when: nvm_check.rc > 1
+  shell: |
+    if ! [ -d ~/.nvm ]; then
+      exit 1
+    fi
+
+- name: Software | Create NVM Directory
+  when: nvm_check.rc == 1
+  file:
+    state: directory
+    path: ~/.nvm
+
+- name: Software | Install Node & NVM
+  tags: always
+  when: nvm_check.rc == 1
+  shell: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+
+    nvm install {{ node_version }} --latest-npm

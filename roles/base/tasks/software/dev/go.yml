@@ -1,0 +1,18 @@
+- name: Software | Check for GoLang
+  tags: always
+  register: go_check
+  changed_when: false
+  failed_when: go_check.rc > 1
+  shell: |
+    if ! go version | grep -q "go version go{{go_version}}"; then
+      exit 1
+    fi
+
+- name: Software | Install GoLang
+  tags: always
+  become: true
+  when: go_check.rc == 1
+  shell: |
+    wget -o- https://go.dev/dl/go{{go_version}}.linux-amd64.tar.gz
+    rm -rf /usr/local/go && tar -C /usr/local -xzf go{{go_version}}.linux-amd64.tar.gz 
+    rm go{{go_version}}.linux-amd64.tar.gz

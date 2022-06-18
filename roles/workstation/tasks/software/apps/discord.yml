@@ -1,0 +1,4 @@
+- name: Software | Install Discord
+  ignore_errors: true
+  flatpak:
+    name: com.discordapp.discord

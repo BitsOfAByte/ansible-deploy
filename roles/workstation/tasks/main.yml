@@ -1,0 +1,15 @@
+- block:
+    # Install Sources
+    - import_tasks: software/pkg_sources.yml
+
+    # Install Software
+    - import_tasks: software/pkg_fonts.yml
+    - import_tasks: software/pkg_apps.yml
+
+    # Install Configurations
+    - import_tasks: system_setup/install-configs.yml
+    - import_tasks: system_setup/directories.yml
+
+    # Desktop Environment Configuration
+    - import_tasks: desktop_environments/gnome/main.yml
+      when: ansible_env.XDG_CURRENT_DESKTOP == 'GNOME'

@@ -1,0 +1,28 @@
+# Create Directories
+- name: System | Create Dotfile Directories
+  tags: system,dotfiles
+  file:
+    path: ~/{{ item.dir }}
+    state: directory
+    mode: 0700
+  with_items:
+    - { dir: .config/neofetch }
+    - { dir: .config/zsh }
+
+# Install Files
+- name: System | Install Dotfiles
+  tags: system,dotfiles
+  synchronize:
+    src: dotfiles/{{ item.src }}
+    dest: ~/{{ item.dest }}
+  with_items:
+    - { src: git/.gitconfig, dest: .gitconfig }
+    - { src: git/.globGitIgnore, dest: .globGitIgnore }
+    - { src: neofetch/config.conf, dest: .config/neofetch/config.conf }
+    - { src: neofetch/logo.txt, dest: .config/neofetch/logo.txt }
+    - { src: zsh/.zshrc, dest: .zshrc }
+    - { src: zsh/.p10k.zsh, dest: .p10k.zsh }
+    - { src: zsh/aliases.zsh, dest: .config/zsh/aliases.zsh }
+    - { src: zsh/exports.zsh, dest: .config/zsh/exports.zsh }
+    - { src: zsh/config.zsh, dest: .config/zsh/config.zsh }
+    - { src: zsh/startup.zsh, dest: .config/zsh/startup.zsh }

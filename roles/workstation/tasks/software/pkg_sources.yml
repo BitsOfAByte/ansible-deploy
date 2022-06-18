@@ -1,0 +1,16 @@
+- import_tasks: software/sources/dnf.yml
+  when: ansible_pkg_mgr in ["dnf", "yum"]
+  become: true
+
+- import_tasks: software/sources/apt.yml
+  when: ansible_pkg_mgr in ["apt", "apt-get"]
+  become: true
+
+- import_tasks: software/sources/flatpak.yml
+  become: true
+
+- name: Post-Sources | Update Package Cache
+  become: true
+  changed_when: false
+  package:
+    update_cache: yes

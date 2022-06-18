@@ -1,0 +1,11 @@
+- name: Software | Install Development Software
+  tags: always
+  become: true
+  package:
+    name:
+      - git
+      - "{{ python_pkg }}"
+    state: latest
+
+- import_tasks: software/dev/nvm.yml
+- import_tasks: software/dev/go.yml

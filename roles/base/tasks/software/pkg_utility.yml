@@ -1,0 +1,17 @@
+- name: Software | Install Utility Software
+  tags: always
+  become: true
+  package:
+    name:
+      - neofetch
+      - git
+      - curl
+      - wget
+      - curl
+      - zsh
+      - tar
+      - "{{ firacode_pkg }}"
+      - "{{ lm_sensors_pkg }}"
+      - "{{ python_pkg }}"
+      - "{{ cron_pkg }}"
+    state: latest

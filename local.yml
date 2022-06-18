@@ -1,0 +1,32 @@
+# Pre-run tasks that must be completed before running anything else.
+- hosts: localhost
+  tags: always
+  become: true
+  pre_tasks:
+    - name: Pre-Run | Update Package Cache
+      tags: always
+      changed_when: false
+      package:
+        update_cache: yes
+
+# Install base packages that both servers and workstations will need.
+- hosts: localhost
+  tags: base
+  roles:
+    - base
+
+- hosts: localhost
+  tags: workstation
+  roles:
+    - workstation
+
+# Handle cleanup of packages that are no longer needed.
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Post-Run | Clean Packages & Cache (APT)
+      tags: always
+      apt:
+        autoclean: yes
+        autoremove: yes
+      when: ansible_pkg_mgr == "apt"

@@ -1,0 +1,14 @@
+- name: Ansible | Update to Latest
+  tags: ansible,ansible-setup
+  become: true
+  package:
+    name: ansible
+    state: latest
+
+- name: Ansible | Required Packages
+  tags: ansible,ansible-setup,packages
+  become: true
+  package:
+    name:
+      - "{{ dconf_pkg }}"
+      - "{{ psutil_pkg }}"

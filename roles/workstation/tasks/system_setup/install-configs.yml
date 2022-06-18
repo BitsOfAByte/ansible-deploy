@@ -1,0 +1,50 @@
+# Create Directories
+- name: System | Create Dotfile Directories
+  tags: system,dotfiles
+  file:
+    path: ~/{{ item.dir }}
+    state: directory
+  with_items:
+    - { dir: .config/VSCodium/User/ }
+    - { dir: .config/Code/User/ }
+    - { dir: .config/autostart/ }
+
+- name: System | Create Dotfile Directories (Root)
+  tags: system,dotfiles
+  become: true
+  file:
+    path: /{{ item.dir }}
+    state: directory
+  with_items:
+    - { dir: "etc/firefox/policies" }
+
+# Install Files
+- name: System | Install Dotfiles
+  tags: system,dotfiles
+  synchronize:
+    src: dotfiles/{{ item.src }}
+    dest: ~/{{ item.dest }}
+  with_items:
+    - {
+        src: "vscode/settings.json",
+        dest: ".config/VSCodium/User/settings.json",
+      }
+
+    - { src: "vscode/settings.json", dest: ".config/Code/User/settings.json" }
+
+    - {
+        src: "autostart/protonvpn.desktop",
+        dest: ".config/autostart/protonvpn.desktop",
+      }
+
+- name: System | Install Dotfiles (Root)
+  tags: system,dotfiles
+  become: true
+  synchronize:
+    src: dotfiles/{{ item.src }}
+    dest: /{{ item.dest }}
+  with_items:
+    - {
+        src: "firefox/policies.json",
+        dest: "etc/firefox/policies/policies.json",
+      }

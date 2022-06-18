@@ -1,0 +1,6 @@
+- name: Software | Install Protonvpn
+  tags: always
+  become: true
+  ignore_errors: true
+  package:
+    name: protonvpn

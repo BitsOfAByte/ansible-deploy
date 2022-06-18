@@ -1,0 +1,7 @@
+- import_tasks: software/apps/bitwarden.yml
+- import_tasks: software/apps/discord.yml
+- import_tasks: software/apps/firefox.yml
+- import_tasks: software/apps/slack.yml
+- import_tasks: software/apps/spotify.yml
+- import_tasks: software/apps/steam.yml
+- import_tasks: software/apps/protonvpn.yml

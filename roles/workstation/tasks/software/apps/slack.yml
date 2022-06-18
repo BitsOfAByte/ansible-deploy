@@ -1,0 +1,4 @@
+- name: Software | Install Slack
+  ignore_errors: true
+  flatpak:
+    name: com.slack.Slack

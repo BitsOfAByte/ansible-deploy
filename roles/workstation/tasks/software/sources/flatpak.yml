@@ -1,0 +1,22 @@
+- name: Software | Install Flatpak
+  tags: always
+  become: true
+  package:
+    name:
+      - flatpak
+    state: latest
+
+- name: Software | Flathub Repository Re-sync (Step 1)
+  failed_when: false
+  changed_when: false
+  flatpak_remote:
+    name: flathub
+    state: absent
+
+- name: Software | Flathub Repository Re-sync (Step 2)
+  failed_when: false
+  changed_when: false
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo

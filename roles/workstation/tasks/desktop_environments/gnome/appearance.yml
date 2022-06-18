@@ -1,0 +1,95 @@
+# Wallpaper Stuff
+- name: GNOME | Appearance | Copy Wallpaper File (Light)
+  tags: gnome,gnome-wallpaper
+  become: true
+  copy:
+    src: wallpapers/wallpaper.png
+    dest: /usr/share/backgrounds/hwallpaper.png
+    owner: root
+    group: root
+    mode: 0644
+
+- name: GNOME | Appearance | Copy Wallpaper File (Dark)
+  tags: gnome,gnome-wallpaper
+  become: true
+  copy:
+    src: wallpapers/wallpaper_dark.png
+    dest: /usr/share/backgrounds/hwallpaper_dark.png
+    owner: root
+    group: root
+    mode: 0644
+
+# Extensions Stuff
+- name: GNOME | Appearance | Sync Extension Files
+  tags: gnome,gnome-extensions
+  synchronize:
+    src: desktop_environments/gnome/extensions/
+    dest: ~/.local/share/gnome-shell/extensions/
+
+# Theme stuff
+- name: GNOME | Appearance | Check for Whitesur Theme
+  tags: gnome,gnome-theme
+  register: theme_check
+  failed_when: theme_check.rc > 1
+  changed_when: false
+  shell: |
+    if ! [ -d  ~/.themes/WhiteSur-Dark-pink  ]; then
+      exit 1
+    fi
+
+- name: GNOME | Appearence | Download Whitesur Theme
+  tags: gnome,gnome-theme
+  when: theme_check.rc == 1
+  git:
+    repo: https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+    depth: 1
+    dest: /tmp/ansible/theme-install
+
+- name: GNOME | Appearance | Install Whitesur Theme
+  tags: gnome,gnome-theme
+  when: theme_check.rc == 1
+  shell: cd /tmp/ansible/theme-install && chmod +x install.sh && ./install.sh -l -i arch -c Dark -t pink -N normal -HD
+
+# Icon stuff
+- name: GNOME | Appearance | Check for Whitesur Icons
+  tags: gnome,gnome-icons
+  register: icon_check
+  failed_when: icon_check.rc > 1
+  changed_when: false
+  shell: |
+    if ! [ -d  ~/.local/share/icons/WhiteSur-pink-dark  ]; then
+      exit 1
+    fi
+
+- name: GNOME | Appearance | Download Whitesur Icons
+  tags: gnome,gnome-icons
+  when: icon_check.rc == 1
+  git:
+    repo: https://github.com/vinceliuice/WhiteSur-icon-theme.git
+    depth: 1
+    dest: /tmp/ansible/icon-install
+
+- name: GNOME | Appearance | Install Whitesur Icons
+  tags: gnome,gnome-icons
+  when: icon_check.rc == 1
+  shell: cd /tmp/ansible/icon-install && chmod +x install.sh && ./install.sh -a -t pink
+
+# Tweaks stuff
+- name: GNOME | Appearance | Flatpak Support
+  changed_when: false
+  failed_when: false
+  tags: gnome,gnome-theme
+  shell: cd /tmp/ansible/theme-install && chmod +x tweaks.sh && ./tweaks.sh --flatpak -c Dark -t pink
+
+- name: GNOME | Appearance | GDM Theme
+  changed_when: false
+  failed_when: false
+  tags: gnome,gnome-theme
+  become: true
+  shell: cd /tmp/ansible/theme-install && ./tweaks.sh --gdm -c Dark -t pink --background /usr/share/backgrounds/hwallpaper_dark.png
+
+- name: GNOME | Appearance | Firefox Theme
+  changed_when: false
+  failed_when: false
+  tags: gnome,gnome-theme
+  shell: cd /tmp/ansible/theme-install && ./tweaks.sh --firefox

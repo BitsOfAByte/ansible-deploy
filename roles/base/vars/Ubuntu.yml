@@ -1,0 +1,6 @@
+cron_pkg: cron
+python_pkg: python3
+lm_sensors_pkg: lm-sensors
+psutil_pkg: python3-psutil
+firacode_pkg: fonts-firacode
+dconf_pkg: dconf-cli

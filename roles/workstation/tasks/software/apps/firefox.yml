@@ -1,0 +1,6 @@
+- name: Software | Install Firefox
+  tags: always
+  become: true
+  ignore_errors: true
+  package:
+    name: firefox

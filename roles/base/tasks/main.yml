@@ -1,0 +1,20 @@
+# Load distro-specific variables
+- include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
+
+- include_vars: "Versions.yml"
+  tags: always
+
+- block:
+    - import_tasks: ansible-setup.yml
+
+    # Add Sources
+    # import_tasks: software/pkg_sources.yml
+
+    # Install Packages
+    - import_tasks: software/pkg_utility.yml
+    - import_tasks: software/pkg_dev.yml
+
+    # System Setup
+    - import_tasks: system_setup/change-shell.yml
+    - import_tasks: system_setup/install-configs.yml

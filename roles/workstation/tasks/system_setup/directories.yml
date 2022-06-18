@@ -1,0 +1,8 @@
+- name: System | Create Dev Directories
+  tags: system,dotfiles
+  file:
+    path: ~/{{ item.dir }}
+    state: directory
+  with_items:
+    - { dir: Dev/langs }
+    - { dir: Dev/tools }

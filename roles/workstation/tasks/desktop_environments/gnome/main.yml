@@ -1,0 +1,2 @@
+- import_tasks: desktop_environments/gnome/appearance.yml
+- import_tasks: desktop_environments/gnome/dconf.yml

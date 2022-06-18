@@ -1,0 +1,13 @@
+# DConf Stuff
+
+- name: GNOME | DConf | Copy Settings File
+  tags: gnome,dconf
+  changed_when: false
+  copy:
+    src: desktop_environments/gnome/saved_settings.dconf
+    dest: /tmp/ansible/saved_settings.dconf
+
+- name: GNOME | DConf | Import DConf Settings
+  tags: gnome,dconf
+  changed_when: false
+  shell: dconf load -f / < /tmp/ansible/saved_settings.dconf

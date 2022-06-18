@@ -1,0 +1,14 @@
+- name: Sources | BitsOfAByte Repository (DNF)
+  yum_repository:
+    name: bitsofabyte
+    description: BitsOfAByte Packages
+    enabled: yes
+    gpgcheck: no
+    baseurl: https://packages.bitsofabyte.dev/yum/ /
+    state: present
+
+- name: Sources | ProtonVPN Repository (DNF)
+  yum:
+    name: https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
+    state: present
+    disable_gpg_check: true
