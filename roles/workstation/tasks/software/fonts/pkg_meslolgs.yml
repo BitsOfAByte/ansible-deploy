@@ -4,15 +4,7 @@
   shell: |
     mkdir -p ~/.local/share/fonts
 
-    function downloadFont {
-        fontURL=$1
-        fontName=$2
-        fontDir=$HOME/.local/share/fonts
-
-        curl $fontURL -s -L --output "$fontDir/$fontName"
-    }
-
-    downloadFont https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf "MesloLGS NF Regular.ttf"
-    downloadFont https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf  "MesloLGS NF Bold.ttf"
-    downloadFont https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf "MesloLGS NF Italic.ttf"
-    downloadFont https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf "MesloLGS NF Bold Italic.ttf"
+    curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -s -L --output "$HOME/.local/share/fonts/MesloLGS NF Regular.ttf"
+    curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -s -L --output "$HOME/.local/share/fonts/MesloLGS NF Bold.ttf"
+    curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -s -L --output "$HOME/.local/share/fonts/MesloLGS NF Italic.ttf"
+    curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -s -L --output "$HOME/.local/share/fonts/MesloLGS NF Bold Italic.ttf"
