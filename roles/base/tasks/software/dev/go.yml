@@ -15,4 +15,4 @@
   shell: |
     curl https://go.dev/dl/go{{go_version}}.linux-amd64.tar.gz -s -L --output /tmp/ansible/go.tar.gz
     rm -rf /usr/local/go && tar -C /usr/local -xzf /tmp/ansible/go.tar.gz 
-    rm go.tar.gz
+    rm /tmp/ansible/go.tar.gz
