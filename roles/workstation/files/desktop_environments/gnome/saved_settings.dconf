@@ -175,7 +175,7 @@ name='Take A Screenshot'
 
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='suspend'
-sleep-inactive-ac-timeout=7200
+sleep-inactive-ac-timeout=3600
 sleep-inactive-ac-type='suspend'
 
 [org/gnome/shell]
