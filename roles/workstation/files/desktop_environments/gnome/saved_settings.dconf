@@ -168,11 +168,6 @@ binding='<Super>Return'
 command='gnome-terminal'
 name='Open Terminal'
 
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-binding='<Control>Print'
-command='flameshot gui'
-name='Take A Screenshot'
-
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='suspend'
 sleep-inactive-ac-timeout=3600
