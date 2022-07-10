@@ -104,7 +104,7 @@
       },
       "privacy.query_stripping.enabled.pbmode": {
         "Value": true,
-        "Status" "locked"
+        "Status": "locked"
       }
     },
     "ManagedBookmarks": [
