@@ -97,6 +97,14 @@
       "network.dns.use_https_rr_as_altsvc": {
         "Value": true,
         "Status": "default"
+      },
+      "privacy.query_stripping.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "privacy.query_stripping.enabled.pbmode": {
+        "Value": true,
+        "Status" "locked"
       }
     },
     "ManagedBookmarks": [
