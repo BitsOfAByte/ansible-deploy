@@ -1,8 +1,16 @@
 [user]
 	name = BitsOfAByte
 	email = 19539165+BitsOfAByte@users.noreply.github.com
+	
 [core]
-	editor = codium --wait
+	editor = code --wait
     	excludesfile = ".globGitIgnore"
+	
 [init]
 	defaultBranch = main
+	
+[pull]
+	rebase = true
+
+[url "\"git@github.com:\""]
+	insteadOf = \"https://github.com/\"
